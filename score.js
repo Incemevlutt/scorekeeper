@@ -18,6 +18,8 @@ player1button.addEventListener('click',function(){
          isGameOver=true;
          player1display.classList.add('has-text-success');
          player2display.classList.add('has-text-danger');
+         player1button.disabled=true;
+         player2button.disabled=true;
      }
     }
 player1display.textContent=player1score;
@@ -31,8 +33,10 @@ player2button.addEventListener('click',function(){
         player2score+=1;
      if(player2score===winningScore){
          isGameOver=true;
-         player2display.classList.add('has-text-success	');
-         player1display.classList.add('has-text-danger	');
+         player2display.classList.add('has-text-success');
+         player1display.classList.add('has-text-danger');
+         player1button.disabled=true;
+         player2button.disabled=true;
      }
     }
     player2display.textContent=player2score;
@@ -40,7 +44,8 @@ player2button.addEventListener('click',function(){
     });
 //winning score select
 winningScoreSelect.addEventListener('change',function(){
-winningScore=parseInt(this.value); //tam anlasilmadi sor bunu!! parseInt nedir????
+    console.log(parseInt(this.value));
+    winningScore=parseInt(this.value); //tam anlasilmadi sor bunu!! parseInt nedir????
 reset();
 })
 
@@ -57,5 +62,7 @@ player1display.textContent=0;
 player2display.textContent=0;
 player1display.classList.remove('has-text-success','has-text-danger');
 player2display.classList.remove('has-text-success','has-text-danger');
+player1button.disabled=false;
+player2button.disabled=false;
 
 }
